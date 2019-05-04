@@ -1,0 +1,1566 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="lib/css/tomorrow-night-bright.css"> -->
+    <link rel="stylesheet" href="lib/css/qtcreator_dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-markdown>
+          <textarea data-template>
+            ### Como o seu navegador se tornou um malware socialmente aceito
+            Guilherme Baptista
+
+            <br />
+
+            CryptoRave 2019, Brasil.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Agenda
+            - Navegadores e os 4 níves da internet;
+
+            - Malwares, trackers, publicidade e JavaScript;
+            - Proteções conhecidas;
+            - Novos níveis de proteção;
+
+            - Como fazer parte;
+            - Demonstração ao vivo.
+
+            <aside class="notes" data-markdown>
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Quais são os navegadores mais populares no Brasil?
+            http://gs.statcounter.com/browser-market-share/all/brazil
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 80%
+
+            ## Google Chrome
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 5%
+
+            ## Mozilla Firefox
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 5%
+
+            ## Apple Safari
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 2%
+
+            ## Opera
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 1%
+
+            ## Microsoft Edge e Internet Explorer
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Quase
+            # 90%
+            da internet é acessada por navegadores de
+
+            ## _"código aberto"_.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # BSD ~ MIT
+            ## Chromium
+            (Google Chrome)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # MPL
+
+            ## Mozilla Firefox
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## E por quê isso importa?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## A importância do software livre
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Código aberto
+            # não
+            significa software livre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # As 4 liberdades
+            de um software livre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 0
+            ## Usar para qualquer propósito.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 1
+            ## Estudar e adapdar para as suas necessidades.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 2
+            ## Redistribuir cópias livremente.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 3
+            ## Modificar e distribuir as modificações.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Gratuito
+            # não
+            significa livre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Google Chrome é
+            # gratuito.
+            Não é livre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Chromium é
+            # livre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Mozilla Firefox é
+            # livre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Cenário promissor em direção à
+            # liberdade.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## É o suficiente?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Os 4 níveis da internet
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Nível 1
+            ### Transferência de dados entre computadores.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Transferência de arquivos
+            http://site.com.br/Documento.txt
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### _Documento.txt_
+
+            > DOCUMENTO PÚBLICO
+            >
+            >  Este é um exemplo de documento com texto puro.
+          </textarea>
+        </section>
+
+        <section data-transition="concave">
+          <pre><code class="hljs" data-trim>
+            wget http://site.com.br/Documento.txt
+
+            --2019-05-01 18:55:51--  http://site.com.br/Documento.txt
+            Resolving site.com.br (site.com.br)... 192.241.176.17
+            Connecting to site.com.br (site.com.br)|192.241.176.17|:80...
+            Connected.
+            HTTP request sent, awaiting response... 200 OK
+            Length: 1782 (1,7K) [text/plain]
+            Saving to: ‘Documento.txt’
+
+            Documento.txt 100%[=====>]   1,74K  --.-KB/s    in 0s      
+
+            2019-05-01 18:55:51 (83,0 MB/s)
+            ‘Documento.txt’ saved [1782/1782]
+          </code></pre>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/documento.svg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Editor de textos:
+
+            > DOCUMENTO PÚBLICO
+            >
+            >  Este é um exemplo de documento com texto puro.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 2014
+            ### Marco Civil da Internet
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Subseção I
+            ## Da Guarda de Registros de Conexão
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Resumindo
+            Se a justiça liberar, o seu provedor precisa dizer:
+
+            - Qual documento você acessou;
+            - Qual dia e hora;
+            - Onde você estava quando acessou.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Tem como evitar?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Servidores proxy
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/proxy.svg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Anonymous
+            ## LulzSec
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Hidemyass
+            foi obrigado a liberar os dados e
+            ### duas pessoas foram presas pelo FBI.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Tor
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/tor.svg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Nível 2
+            ### HTML e Hyperlinks
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            1980
+            # WWW
+            ## 1992
+            foi lançado o primeiro site HTML da internet.
+
+          </textarea>
+        </section>
+
+        <section data-transition="concave">
+          <pre><code class="hljs" data-trim>
+            <TITLE>Summary -- /WWW</TITLE>
+
+            <H1>WorldWideWeb - Summary</H1>
+
+            The <A NAME=6 HREF=TheProject.html>WWW</A> project merges...
+
+            <P>
+            The project is based...
+
+            <H3>Reader view</H3>
+            The WWW world consists of documents, and links...
+          </code></pre>
+        </section>
+
+        <section data-transition="concave">
+          <pre><code class="hljs" data-trim>
+            <h1>Exemplo de Documento</h1>
+
+            <p>
+              Este é um documento web simples para demonstrar
+              como a internet funciona. Ele não possui:
+            </p>
+            <ul>
+              <li>Estruturas complexas</li>
+              <li>Imagens ou animações</li>
+              <li>
+                Recursos que dependam de um navegador
+                para serem totalmente compreendidos
+              </li>
+            </ul>
+          </code></pre>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # wget?
+            http://site.com.br/Documento.html
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            # Lynx
+            HTML
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/documento-lynx.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Nível 3
+            ### Headers e cookies
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/headers.svg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # Cookies?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/cookie.svg)
+          </textarea>
+        </section>
+
+        <section data-transition="concave">
+          <pre><code class="hljs" data-trim>
+            <h1>Exemplo de Documento</h1>
+
+            <p>
+              Este é um documento web simples para demonstrar
+              como a internet funciona. Ele não possui:
+            </p>
+            <ul>
+              <li>Estruturas complexas</li>
+              <li>Imagens ou animações</li>
+              <li>
+                Recursos que dependam de um navegador
+                para serem totalmente compreendidos
+              </li>
+            </ul>
+          </code></pre>
+        </section>
+
+         <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/documento.png)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Nível 4
+            ### JavaScript e AJAX
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/popup.jpg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/loading.svg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Malware
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Código ou programa:
+
+            - Malicioso;
+            - Nocivo;
+            - Mal-intencionado.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Entra no
+            ### computador alheio
+            para causar danos ou
+            ### roubo de informações
+            (confidenciais ou não).
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ### O meu navegador faz isso?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Mais do que isso:
+
+            Ele é uma porta de entrada para que qualquer site possa fazer isso.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Tem como se proteger?
+            # Sim!
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # Extensões
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/extensoes.png)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # Proxy
+
+            #### https://hide.me
+            #### https://hidester.com
+            #### https://www.hidemyass.com
+            #### https://www.hotspotshield.com
+          </textarea>
+        </section>
+        
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Camuflar o seu verdadeiro IP
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Por quê?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Seu IP verdadeiro não fica registrado como quem acessou algum documento.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Conteúdo bloqueado para IP's brasileiros.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Sites que tentam cobrar por conteúdo aberto.
+            Prática comum em grandes jornais.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## HTTPS Everywhere
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/https.svg)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Trackers
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/light.png)
+            ### Firefox Lightbeam
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Bloqueio de trackers
+
+            ### [uBlock Origin](https://github.com/gorhill/uBlock/)
+            ### [Disconnect](http://disconnect.me/)
+            ### [Privacy Badger](https://www.eff.org/privacybadger)
+            ### [Ghostery](https://www.ghostery.com/)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Publicidade
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Quanto da sua internet é consumida por publicidade?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _The New York Times_
+            ## Sites de notícias acessados por celulares.
+
+            <aside class="notes" data-markdown>
+              https://www.nytimes.com/interactive/2015/10/01/business/cost-of-mobile-ads.html
+            </aside>
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _theblaze.com_
+            ## 11.9 segundos
+            com publicidade;
+            ## 7 segundos
+            com conteúdo.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _thedailybeast.com_
+            ## 11.3 segundos
+            com publicidade;
+            ## 5 segundos
+            com conteúdo.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _boston.com_
+            ## 30.8 segundos
+            com publicidade;
+            ## 8.1 segundos
+            com conteúdo.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _boston.com_
+            ## mais de 15 MB
+            com publicidade.
+
+            Da sua franquia 3G.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## E nos sites mais acessados do Brasil?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _mercadolivre.com.br_
+            # 21%
+            com trackers e publicidade;
+
+            ## 0,4 MB
+            de trackers e publicidade.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _globo.com_
+            # 63%
+            com trackers e publicidade;
+
+            ## 1,7 MB
+            de trackers e publicidade.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            _uol.com.br_
+            # 67%
+            com trackers e publicidade;
+
+            ## 7,1 MB
+            de trackers e publicidade.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Bloqueio de publicidade
+
+            ### [Adblock Plus](https://adblockplus.org)
+            ### [Adblock_](https://getadblock.com)
+            ### [uBlock Origin](https://github.com/gorhill/uBlock)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Impacto do uso de extensões no mercado de navegadores.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Tor Browser
+
+            - NoScript;
+            - HTTPS Everywhere.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Opera
+
+            - VPN integrada;
+            - Bloqueador de anúncios.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Brave
+
+            - Bloqueador de anúncios;
+            - Bloqueador de trackers;
+            - HTTPS upgrades.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## É o suficiente?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Infelizmente
+            # não.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # JavaScript
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## addEventListener
+          </textarea>
+        </section>
+
+        <section data-transition="concave">
+          Olhar o ponteiro do seu mouse é como observar o movimento dos seus olhos:
+          <pre><code class="hljs" data-trim>
+            someImage.addEventListener('mousemove', function(_event) {
+              sendReport('the user is moving the mouse over the image');
+            });
+          </code></pre>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/map.jpg)
+          </textarea>
+        </section>
+
+        <section data-transition="concave">
+          Começou a digitar algo e mudou de ideia?
+          <pre><code class="hljs" data-trim>
+            someTextInput.addEventListener('keypress', function(_event) {
+              sendEmail('send the typed email!');
+            });
+          </code></pre>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ![site](./images/keypress.svg)
+          </textarea>
+        </section>
+
+        <section data-transition="concave">
+          Tá "escrolando" a página?
+          <pre><code class="hljs" data-trim>
+            document.addEventListener('wheel', function(_event) {
+              sendReport('scrolling...');
+            });
+          </code></pre>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Web APIs
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## _A maioria dos sites não precisam vibrar_
+
+            https://arxiv.org/abs/1708.08510
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 74
+            padrões de Web APIs implementados nos
+            ## navegadores modernos.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Apenas
+            # 11
+            pedem sua permissão pra executar.
+
+            <aside class="notes" data-markdown>
+              Geolocation
+              Notifications
+              Push
+              Midi
+              Media Devices
+              Background Sync
+              Ambient Light Sensor
+              Accelerometer
+              Gyroscope
+              Magnetometer
+              Clipboard
+            </aside>
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # vibrate(200);
+            _Vibrar por 200ms._
+
+            https://googlechrome.github.io/samples/vibration/
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## getCurrentPosition();
+            _Qual a sua localização GPS?_
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Fingerprinting
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## getBattery()
+            _Tem bateria? É um notebook?_
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## getGamepads();
+            _Quantas portas USB's? Tem algo conectado?_
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## NavigatorID;
+            _Qual o navegador?_
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Service Workers
+            ## Web Workers
+            Realizar tarefas em background.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            #### about:debugging#workers
+            Firefox
+
+            <br />
+
+            #### chrome://inspect/#service-workers
+            Chromium
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Mineração de criptomoedas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### _"Site do Governo de SP usou computador de visitante para minerar moeda virtual"_
+            https://g1.globo.com/tecnologia/noticia/site-do-governo-de-sp-usou-computador-de-visitante-para-minerar-moeda-virtual.ghtml
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### _"Governo de SP está minerando criptomoedas no seu computador sem você saber"_
+            https://www.tecmundo.com.br/seguranca/124000-governo-sp-minerando-criptomoedas-computador-voce-saber.htm
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### _"Site do governo do RJ e outras 7 páginas brasileiras mineram criptomoedas"_
+            https://olhardigital.com.br/noticia/site-do-governo-do-rj-e-outras-7-paginas-brasileiras-mineram-criptomoedas/72292
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Como o seu navegador se tornou um malware socialmente aceito?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Abrindo uma porta para qualquer site fazer o que quiser.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Escondendo de você o que os sites estão fazendo.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Implementando APIs perigosas sem perguntar ou informar as pessoas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Com os usuários não se importando com o que acontece em seu próprio computador.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Tem como evitar?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Desabilitar o JavaScript do seu navegador.
+            E não conseguir utilizar nenhum site.
+          </textarea>
+        </section>
+         
+         <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Minimizar o impacto
+
+            ### [NoScript](https://noscript.net/)
+            ### [ScriptSafe](https://github.com/andryou/scriptsafe)
+            ### [uMatrix](https://github.com/gorhill/uMatrix)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ### 2017
+            ## Web API Manager
+            https://github.com/snyderp/web-api-manager
+
+            (não mantida)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Web Workers
+            ### Service Workers
+            ### Ambient Light Sensor
+            ### Battery Status
+            ### DeviceOrientation
+            ### Gamepad
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Proximity
+            ### Screen Orientation
+            ### Vibration
+            ### WebUSB
+            ### Speech
+            ### Beacon
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 79
+            ## itens que podem ser bloqueados
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ### Janeiro de 2018
+            # Luminous
+            Bloqueador de eventos JavaScript
+            https://gbaptista.github.io/luminous/
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Entrando em um site com um combo de 3 extensões:
+
+            - HTTPS Everywhere;
+            - uBlock Origin;
+            - ScriptSafe.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 6
+            requisições influenciadas pela
+            ## HTTPS Everywhere.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 75
+            requisições bloqueadas pela
+            ## uBlock Origin.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 4
+            execuções bloqueadas pela
+            ## ScriptSafe.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Adicionando a
+            ## Luminous...
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-icon.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # 7,6 mil
+            execuções de JavaScript detectadas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-demo.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ## Códigos consumindo sua CPU
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-1.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ## Códigos monitorando sua atividade
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-2.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ## Fingerprinting
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-3.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ## Como bloquear algo indesejado?
+
+            É so clicar.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-4.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ### Configurações globais e por site específico.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-settings.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            # Relatórios
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ### Qual site que
+            # você
+            ### acessa mais executa JavaScript?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-report-1.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            ### Qual código JavaScript é mais executado nos sites que
+            # você
+            ### visita.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-report-2.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="fade">
+          <textarea data-template>
+            Depois de alguns
+            # minutos
+            utlizando...
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-report-3.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Quem está por trás de todas essas ferramentas de proteção?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # EFF
+            ## Electronic Frontier Foundation
+
+            #### EFForg/https-everywhere
+            #### EFForg/privacybadger
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Mais de
+            ## 800
+            pessoas que escreveram mais de
+            # meio milhão
+            de linhas de código.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            EFForg/privacybadger
+            ## 49%
+            do código foi escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            snyderp/web-api-manager
+            ## 63%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            gbaptista/luminous
+            ## 71%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            disconnectme/disconnect
+            ## 73%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            gorhill/uMatrix
+            ## 74%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            gorhill/uBlock
+            ## 86%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            hackademix/noscript
+            ## 95%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            andryou/scriptsafe
+            ## 96%
+            do código escrito por
+            # 1 pessoa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Tirando os 2 projetos da
+            ## Electronic Frontier Foundation
+            da conta.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 6%
+            das pessoas são responsáveis por
+            # 70%
+            do código.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Mais de 
+            ## 3 milhões e meio
+            de linhas de código escritas por
+            ## 12 pessoas
+            em 9 projetos diferentes.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 2013
+            
+            ### Google:  + 47 mil pessoas;
+            ### Apple:  + 80 mil pessoas;
+            ### Microsoft: + 90 mil pessoas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # 12 pessoas
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Sozinhos não chegamos a lugar nenhum.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Cada pessoa conta.
+            # Muito.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="convex">
+          <textarea data-template>
+            ## Como você pode ajudar?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Use as ferramentas.
+
+            https://addons.mozilla.org/firefox
+            https://chrome.google.com/webstore/category/extensions
+            https://addons.opera.com
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Conte para outras pessoas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Ensine outras pessoas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Escreva sobre.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Investigue os sites com as ferramentas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Denuncie sites com comportamentos suspeitos.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Reporte problemas:
+            https://github.com/gbaptista/luminous/issues
+
+            (de maneira produtiva)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### _"Essa ferramenta é uma $%#*!. Nunca achei que eu fosse odiar algo com tanto força."_
+            (Babel)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### _"Não está funcionando na versão X, como é a versão mais segura, é uma VERGONHA não funcionar."_
+            (Luminous)
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Issues produtivas
+
+            - Qual o problema?
+            - Por quê é importante para você, como isso afeta a sua vida?
+
+            _"Minha filha gosta desse joguinho e ele para de funcionar com a extensão."_
+
+            _"Eu preciso usar esse site no trabalho e ele para de funcionar."_
+
+            - Como eu posso reproduzir o problema? Alguma teoria do motivo?
+            - Printscreens ou filmagens da tela.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Deixe uma avaliação nas stores
+
+            - Conte como a extensão te ajudou;
+            - Estrelinhas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Mão na massa.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Traduzir para outros idiomas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/spanish.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## UX, UI, código, desempenho e dicas.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            # Colaboração
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade" data-background-image="./images/luminous-issue.png" data-background-position="center" data-background-repeat="no-repeat" data-background-size="auto">
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### Estamos
+            # juntos
+            ### buscando o mesmo objetivo.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            Não deixe o seu navegador agir como um malware que permite que qualquer site faça o quiser.
+            ## Faça parte da resistência.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ### O navegador é seu;
+            ### O computador é seu;
+            ### O celular é seu;
+            ### A energia elétrica é sua;
+            ### É a sua privacidade.
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Estamos com tempo?
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="concave">
+          <textarea data-template>
+            ## Obrigado!
+
+            #### https://github.com/gbaptista/luminous
+            #### https://github.com/gbaptista
+            _(que foi comprado pela Microsoft)_
+
+            <br />
+
+            #### guilhermebaptistasilva [at] gmail.com
+
+            _(que vai ser usado pela Google pra vender banner)_
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
